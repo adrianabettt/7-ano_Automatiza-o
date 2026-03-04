@@ -102,13 +102,13 @@ function mostrarFase(){
     feedback.innerHTML = "";
 
     if(fase === 0){
-        fala.innerHTML = "Olá! Eu sou o Robô da Escola 🤖<br>Preciso descobrir quais alunos têm mais de 12 anos... mas sou meio atrapalhado!";
+        fala.innerHTML = "Olá! Sou funcionário da escola.<br>Preciso descobrir quais alunos têm mais de 12 anos... mas sou meio atrapalhado!";
         criarBotao("Vou olhar ficha por ficha sozinho!", erroManual);
-        criarBotao("Vou ensinar o robô a fazer isso automaticamente!", proximaFase);
+        criarBotao("Vou ensinar o computador a fazer isso automaticamente!", proximaFase);
     }
 
     if(fase === 1){
-        fala.innerHTML = "Boa ideia! Mas o que é automatizar mesmo?";
+        fala.innerHTML = "Hum! Mas o que é automatizar mesmo?";
         criarBotao("É fazer tudo manualmente.", erroConceito);
         criarBotao("É ensinar o computador a executar sozinho usando regras.", proximaFase);
     }
@@ -162,3 +162,4 @@ iniciar();
 
 </body>
 </html>
+

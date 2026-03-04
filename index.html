@@ -31,25 +31,37 @@ button{
     font-size: 15px;
     background: #6c63ff;
     color: white;
+    transition: 0.3s;
 }
 
 button:hover{
     background: #483dff;
+    transform: translateY(-2px);
 }
 
 #fala{
     font-size: 18px;
     margin-bottom: 20px;
+    min-height: 50px;
 }
 
 #feedback{
     font-weight: bold;
-    margin-top: 10px;
+    margin-top: 15px;
+    color: #d32f2f;
 }
 
 .robo{
     font-size: 60px;
     animation: piscar 1.5s infinite alternate;
+}
+
+/* Estilo do Rodapé de Direitos Autorais */
+.copyright {
+    margin-top: 30px;
+    font-size: 13px;
+    color: #666;
+    font-style: italic;
 }
 
 @keyframes piscar{
@@ -69,8 +81,11 @@ button:hover{
     <div id="feedback"></div>
 </div>
 
-<script>
+<div class="copyright">
+    Material Pedagógico - Profª Adriana Bett Terebinto © 2026
+</div>
 
+<script>
 let fase = 0;
 
 function iniciar(){
@@ -138,11 +153,11 @@ function finalizar(){
     "<h2>Missão Concluída!</h2>" +
     "<p>Você ensinou o robô a automatizar!</p>" +
     "<p>Automatizar significa criar regras para que o computador execute tarefas sozinho, economizando tempo e evitando erros.</p>" +
-    "<p>Agora você é um(a) Treinador(a) de Robôs!</p>";
+    "<p>Agora você é um(a) Treinador(a) de Robôs!</p>" +
+    "<button onclick='location.reload()'>Jogar Novamente</button>";
 }
 
 iniciar();
-
 </script>
 
 </body>

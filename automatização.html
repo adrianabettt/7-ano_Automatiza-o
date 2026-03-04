@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>O Robô da Escola</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg,#ff9a9e,#fad0c4);
+    text-align: center;
+    padding: 30px;
+}
+
+.caixa{
+    background: white;
+    padding: 25px;
+    border-radius: 20px;
+    max-width: 750px;
+    margin: auto;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+button{
+    padding: 12px;
+    margin: 8px;
+    width: 85%;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+    background: #6c63ff;
+    color: white;
+}
+
+button:hover{
+    background: #483dff;
+}
+
+#fala{
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+#feedback{
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.robo{
+    font-size: 60px;
+    animation: piscar 1.5s infinite alternate;
+}
+
+@keyframes piscar{
+    from{transform: scale(1);}
+    to{transform: scale(1.1);}
+}
+</style>
+</head>
+
+<body>
+
+<div class="caixa">
+    <div class="robo">🤖</div>
+    <h2>O Robô da Escola</h2>
+    <div id="fala"></div>
+    <div id="botoes"></div>
+    <div id="feedback"></div>
+</div>
+
+<script>
+
+let fase = 0;
+
+function iniciar(){
+    fase = 0;
+    mostrarFase();
+}
+
+function mostrarFase(){
+    const fala = document.getElementById("fala");
+    const botoes = document.getElementById("botoes");
+    const feedback = document.getElementById("feedback");
+
+    botoes.innerHTML = "";
+    feedback.innerHTML = "";
+
+    if(fase === 0){
+        fala.innerHTML = "Olá! Eu sou o Robô da Escola 🤖<br>Preciso descobrir quais alunos têm mais de 12 anos... mas sou meio atrapalhado!";
+        criarBotao("Vou olhar ficha por ficha sozinho!", erroManual);
+        criarBotao("Vou ensinar o robô a fazer isso automaticamente!", proximaFase);
+    }
+
+    if(fase === 1){
+        fala.innerHTML = "Boa ideia! Mas o que é automatizar mesmo?";
+        criarBotao("É fazer tudo manualmente.", erroConceito);
+        criarBotao("É ensinar o computador a executar sozinho usando regras.", proximaFase);
+    }
+
+    if(fase === 2){
+        fala.innerHTML = "Certo! Então qual regra devemos ensinar?";
+        criarBotao("Mostrar todos os alunos sem analisar.", erroRegra);
+        criarBotao("Se idade > 12, mostrar nome.", finalizar);
+    }
+}
+
+function criarBotao(texto, funcao){
+    const btn = document.createElement("button");
+    btn.innerText = texto;
+    btn.onclick = funcao;
+    document.getElementById("botoes").appendChild(btn);
+}
+
+function erroManual(){
+    document.getElementById("feedback").innerHTML =
+    "❌ Isso não é automatizar! Automatizar é deixar o robô trabalhar sozinho.";
+}
+
+function erroConceito(){
+    document.getElementById("feedback").innerHTML =
+    "❌ Não! Automatizar não é fazer manualmente. É criar regras para o computador executar.";
+}
+
+function erroRegra(){
+    document.getElementById("feedback").innerHTML =
+    "❌ Sem regra o robô fica perdido! Precisamos dizer exatamente o que ele deve fazer.";
+}
+
+function proximaFase(){
+    fase++;
+    mostrarFase();
+}
+
+function finalizar(){
+    document.querySelector(".caixa").innerHTML =
+    "<div class='robo'>🤖✨</div>" +
+    "<h2>Missão Concluída!</h2>" +
+    "<p>Você ensinou o robô a automatizar!</p>" +
+    "<p>Automatizar significa criar regras para que o computador execute tarefas sozinho, economizando tempo e evitando erros.</p>" +
+    "<p>Agora você é um(a) Treinador(a) de Robôs!</p>";
+}
+
+iniciar();
+
+</script>
+
+</body>
+</html>
